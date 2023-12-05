@@ -1,0 +1,2 @@
+module ReciipesHelper
+end
