@@ -12,7 +12,7 @@ class ReciipesController < ApplicationController
 
   # GET /reciipes/new
   def new
-    @reciipe = Reciipe.new
+    @reciipe = current_user.reciipes.build
   end
 
   # GET /reciipes/1/edit
