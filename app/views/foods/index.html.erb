@@ -16,15 +16,15 @@
       </tr>
     </thead>
     <tbody>
-      <% @foods.each do |food| %>
-        <tr>
-          <td><%= food.name %></td>
-          <td><%= food.measurement_unit %></td>
-          <td>$<%= food.price %></td>
-          <td><%= button_to "Delete", food_path(food.id), method: :delete %></td>
-        </tr>
-      <% end %>
-    </tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td><%= button_to "Delete", food_path(food.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
   </table>
 </div>
 
