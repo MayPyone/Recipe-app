@@ -8,3 +8,5 @@
 
   <%= button_to "Destroy this reciipe", @reciipe, method: :delete %>
 </div>
+
+<%= render partial: 'ingredients/index', locals: { ingredients: @ingredients, ingredient: @ingredient } %>

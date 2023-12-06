@@ -1,0 +1,63 @@
+<% if @ingredient.new_record? %>
+  <%= form_with(model: [@reciipe, @ingredient], url: reciipe_ingredients_path(@reciipe), method: :post) do |form| %>
+    <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :measurement_unit, style: "display: block" %>
+    <%= form.text_field :measurement_unit %>
+  </div>
+
+  <div>
+    <%= form.label :value, style: "display: block" %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div>
+    <%= form.label :reciipe_id, style: "display: block" %>
+    <%= form.text_field :reciipe_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end %>
+<% else %>
+  <%= form_with(model: [@reciipe, @ingredient], url: reciipe_ingredient_path(@reciipe, @ingredient), method: :patch) do |form| %>
+    <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :measurement_unit, style: "display: block" %>
+    <%= form.text_field :measurement_unit %>
+  </div>
+
+  <div>
+    <%= form.label :value, style: "display: block" %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div>
+    <%= form.label :reciipe_id, style: "display: block" %>
+    <%= form.text_field :reciipe_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end %>
+<% end %>

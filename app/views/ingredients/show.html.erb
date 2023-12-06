@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ingredient %>
+
+<div>
+  <%= link_to "Edit this ingredient", edit_reciipe_ingredient_path(@ingredient.reciipe, @ingredient) %> |
+  <%= link_to "Back to ingredients", reciipe_ingredients_path(@ingredient.reciipe) %>
+
+  <%= button_to "Destroy this ingredient", [@ingredient.reciipe, @ingredient], method: :delete %>
+</div>

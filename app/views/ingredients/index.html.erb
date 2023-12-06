@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Ingredients</h1>
+
+<div id="ingredients">
+  <% @ingredients.each do |ingredient| %>
+    <%= render ingredient %>
+    <p>
+      <%= link_to "Show this ingredient", reciipe_ingredient_path(@reciipe, ingredient) %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <% if @ingredient.present? %>
+    <%= link_to "Edit this ingredient", edit_reciipe_ingredient_path(@ingredient.reciipe, @ingredient) %> |
+    <%= button_to "Destroy this ingredient", [@ingredient.reciipe, @ingredient], method: :delete %>
+  <% else %>
+    <p> No ingredient here! </p>
+  <% end %>
+</div>
+
+<%= link_to "New ingredient", new_reciipe_ingredient_path(@reciipe) %>

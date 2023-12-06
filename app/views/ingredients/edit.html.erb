@@ -1,0 +1,10 @@
+<h1>Editing ingredient</h1>
+
+<%= render "form", ingredient: @ingredient %>
+
+<br>
+
+<div>
+  <%= link_to "Show this ingredient", reciipe_ingredient_path(@reciipe, @ingredient) %> |
+  <%= link_to "Back to ingredients", reciipe_ingredients_path(@reciipe) %>
+</div>
