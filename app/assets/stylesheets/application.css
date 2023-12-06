@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 0 auto;
+  }
+  table, th, td {
+    border: 1px solid black;
+   text-align: center;
+  }
+
+  .foodadd-container {
+    text-align: right;
+    margin-right: 15%;
+    margin-bottom: 2%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  
