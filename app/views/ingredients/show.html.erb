@@ -3,8 +3,8 @@
 <%= render @ingredient %>
 
 <div>
-  <%= link_to "Edit this ingredient", edit_ingredient_path(@ingredient) %> |
-  <%= link_to "Back to ingredients", ingredients_path %>
+  <%= link_to "Edit this ingredient", edit_reciipe_ingredient_path(@ingredient.reciipe, @ingredient) %> |
+  <%= link_to "Back to ingredients", reciipe_ingredients_path(@ingredient.reciipe) %>
 
-  <%= button_to "Destroy this ingredient", @ingredient, method: :delete %>
+  <%= button_to "Destroy this ingredient", [@ingredient.reciipe, @ingredient], method: :delete %>
 </div>
