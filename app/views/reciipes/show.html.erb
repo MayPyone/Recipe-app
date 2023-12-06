@@ -1,12 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @reciipe %>
+<h1><%= @reciipe.name %></h1>
+
+<p><strong>Preparation Time:</strong> <%= @reciipe.preparation_time %> minutes</p>
+<p><strong>Cooking Time:</strong> <%= @reciipe.cooking_time %> minutes</p>
+<p><strong>Description:</strong> <%= @reciipe.description %></p>
 
 <div>
-  <%= link_to "Edit this reciipe", edit_reciipe_path(@reciipe) %> |
-  <%= link_to "Back to reciipes", reciipes_path %>
+  <%= link_to "Back to recipes", reciipes_path %>
 
-  <%= button_to "Destroy this reciipe", @reciipe, method: :delete %>
+  <% if user_signed_in? && (current_user == @reciipe.user || @reciipe.public?) %>
+    <%= link_to "Edit this recipe", edit_reciipe_path(@reciipe) %> |
+    <%= button_to "Destroy this recipe", @reciipe, method: :delete %>
+  <% end %>
 </div>
+
+<%= form_with(model: @reciipe) do |form| %>
+  <% if user_signed_in? && current_user == @reciipe.user %>
+    <div>
+      <%= form.label :public, style: "display: block" %>
+      <%= form.check_box :public, onchange: "this.form.submit()" %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= render partial: 'ingredients/index', locals: { ingredients: @ingredients, ingredient: @ingredient } %>

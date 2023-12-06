@@ -1,5 +1,5 @@
 class ReciipesController < ApplicationController
-  before_action :set_reciipe, only: %i[ show edit update destroy ]
+  before_action :set_reciipe, only: %i[show edit update destroy]
 
   # GET /reciipes or /reciipes.json
   def index
@@ -20,6 +20,12 @@ class ReciipesController < ApplicationController
 
   # GET /reciipes/1/edit
   def edit
+    # to be modified.
+  end
+
+  # GET /public_recipes
+  def public_reciipes
+    @public_reciipes = Reciipe.where(public: true).order(created_at: :desc)
   end
 
   # POST /reciipes or /reciipes.json
@@ -28,7 +34,7 @@ class ReciipesController < ApplicationController
 
     respond_to do |format|
       if @reciipe.save
-        format.html { redirect_to reciipe_url(@reciipe), notice: "Reciipe was successfully created." }
+        format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully created.' }
         format.json { render :show, status: :created, location: @reciipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +47,7 @@ class ReciipesController < ApplicationController
   def update
     respond_to do |format|
       if @reciipe.update(reciipe_params)
-        format.html { redirect_to reciipe_url(@reciipe), notice: "Reciipe was successfully updated." }
+        format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @reciipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,19 +61,20 @@ class ReciipesController < ApplicationController
     @reciipe.destroy!
 
     respond_to do |format|
-      format.html { redirect_to reciipes_url, notice: "Reciipe was successfully destroyed." }
+      format.html { redirect_to reciipes_url, notice: 'Reciipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reciipe
-      @reciipe = Reciipe.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def reciipe_params
-      params.require(:reciipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reciipe
+    @reciipe = Reciipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reciipe_params
+    params.require(:reciipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+  end
 end

@@ -13,6 +13,9 @@
     <%= button_to "Remove", reciipe_path(reciipe.id), method: :delete %>
     </div>
     <p>  <%= reciipe.description %> </p>
+    <p>
+      <%= link_to "Show this reciipe", reciipe %>
+    </p>
     </div>
   <% end %>
-</div>   
+</div>
