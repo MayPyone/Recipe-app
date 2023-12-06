@@ -44,14 +44,11 @@
   }
 
   .reciipe-all {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 75%;
     padding: 1%;
     border: solid 1px black;
     margin-bottom: 1.5%;
-  }
-
-  .recipe-title {
-    margin-right: 3%;
   }
 
   .recipe-title p {
