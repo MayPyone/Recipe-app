@@ -32,4 +32,28 @@
   h1 {
     text-align: center;
   }
-  
+
+  .recipelist-container {
+    width: 90%;
+    margin: 2% auto;
+  }
+
+  #reciipes {
+    width: 90%;
+    margin: 2% auto;
+  }
+
+  .reciipe-all {
+    display: flex;
+    padding: 1%;
+    border: solid 1px black;
+    margin-bottom: 1.5%;
+  }
+
+  .recipe-title {
+    margin-right: 3%;
+  }
+
+  .recipe-title p {
+    margin-bottom: 4%;
+  }
