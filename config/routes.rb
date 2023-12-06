@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   get '/shopping_list', to: 'foods#shopping_list', as: :shopping_list_foods
 
-  root "home#index"
+  root "foods#index"
 end
