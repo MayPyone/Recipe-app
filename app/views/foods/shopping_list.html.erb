@@ -1,0 +1,16 @@
+<!-- app/views/foods/shopping_list.html.erb -->
+
+<h1>Shopping List</h1>
+
+<!-- Display the shopping list -->
+<ul>
+  <% shopping_list.each do |item| %>
+    <% # Assuming the item is an array with [name, quantity] format %>
+    <% name = item[0] %>
+    <% quantity = item[1] %>
+    <li><%= name %> - <%= quantity %> <%= item[2] %></li>
+  <% end %>
+</ul>
+
+<!-- Display the total price -->
+<p>Total Price: <%= total_price %></p>

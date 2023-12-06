@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   get '/public_reciipes', to: 'reciipes#public_reciipes'
 
+  get '/shopping_list', to: 'foods#shopping_list', as: :shopping_list_foods
+
   root "home#index"
 end

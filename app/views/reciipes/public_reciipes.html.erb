@@ -4,8 +4,8 @@
   <% @public_reciipes.each do |recipe| %>
     <li>
       <%= link_to recipe.name, reciipe_path(recipe) %>
+      <p> By: <%= recipe.user.name %> </p>
       <% if current_user == recipe.user %>
-        <%= link_to "Delete", recipe, method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
     </li>
   <% end %>
