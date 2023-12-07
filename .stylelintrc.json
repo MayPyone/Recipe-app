@@ -14,6 +14,7 @@
           ]
         }
       ],
+
       "scss/at-rule-no-unknown": [
         true,
         {
@@ -28,5 +29,6 @@
       ],
       "csstree/validator": true
     },
-    "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css"]
+    "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css"],
+    "ignore": ["custom-elements", "default-namespace"]
   }
