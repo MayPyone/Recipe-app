@@ -1,16 +1,27 @@
 <!-- app/views/foods/shopping_list.html.erb -->
-
+<div class="recipelist-container">
 <h1>Shopping List</h1>
 
-<!-- Display the shopping list -->
-<ul>
-  <% shopping_list.each do |item| %>
-    <% # Assuming the item is an array with [name, quantity] format %>
-    <% name = item[0] %>
-    <% quantity = item[1] %>
-    <li><%= name %> - <%= quantity %> <%= item[2] %></li>
-  <% end %>
-</ul>
+<div class="shopping-title">
+<p>Amount of food items to buy:</p>
+<p>Total value of food needed:</p>
+</div>
 
-<!-- Display the total price -->
-<p>Total Price: <%= total_price %></p>
+<table class="foodlist-talbe">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity </th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% shopping_list.each do |item| %>
+      <tr>
+        <td><%= item[0] %></td>
+        <td><%= item[1] %></td>
+        <td><%= 0 %></td>
+        </tr>
+    <% end %>
+  </tbody>
+  </table>

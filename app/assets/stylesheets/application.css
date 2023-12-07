@@ -165,3 +165,9 @@ nav li :hover {
 .fooditem {
   margin-left: 10%;
 }
+
+.shopping-title {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
