@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <h1><%= @reciipe.name %></h1>
-
+<div class="recipelist-container detail">
+<div>
 <p><strong>Preparation Time:</strong> <%= @reciipe.preparation_time %> minutes</p>
 <p><strong>Cooking Time:</strong> <%= @reciipe.cooking_time %> minutes</p>
 <p><strong>Description:</strong> <%= @reciipe.description %></p>
@@ -14,7 +15,8 @@
     <%= button_to "Destroy this recipe", @reciipe, method: :delete %>
   <% end %>
 </div>
-
+</div>
+<div class="public">
 <%= form_with(model: @reciipe) do |form| %>
   <% if user_signed_in? && current_user == @reciipe.user %>
     <div>
@@ -23,7 +25,10 @@
     </div>
   <% end %>
 <% end %>
+</div>
+</div>
+<div class="buttongroup-recipe ">
+<button><%= link_to "Generate Shopping List", shopping_list_foods_path, method: :post %></button>
 
-<%= link_to "Generate Shopping List", shopping_list_foods_path, method: :post %>
-
-<%= render partial: 'ingredients/index', locals: { ingredients: @ingredients, ingredient: @ingredient } %>
+<button><%= link_to "New ingredient", new_reciipe_ingredient_path(@reciipe) %></button>
+</div>

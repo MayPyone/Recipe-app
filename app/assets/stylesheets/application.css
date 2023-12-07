@@ -131,3 +131,13 @@ nav li :hover {
 .logo {
   width: 80px;
 }
+
+.detail, .buttongroup-recipe {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttongroup-reciper {
+  justify-content: space-between;
+}
