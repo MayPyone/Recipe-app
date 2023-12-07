@@ -2,14 +2,23 @@
 
 <h1>Ingredients</h1>
 
-<div id="ingredients">
-  <% @ingredients.each do |ingredient| %>
-    <%= render ingredient %>
-    <div>
-      <%= link_to "Edit this ingredient", edit_reciipe_ingredient_path(@reciipe, ingredient) %> |
-      <%= button_to "Destroy this ingredient", [ingredient.reciipe, ingredient], method: :delete %>
-    </div>
-  <% end %>
-</div>
-
-<%= link_to "New ingredient", new_reciipe_ingredient_path(@reciipe) %>
+<table class="foodlist-talbe">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity </th>
+        <th>Value price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.quantity %></td>
+        <td><%= ingredient.value %></td>
+        <td><%= button_to "Destroy this ingredient", [ingredient.reciipe, ingredient], method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>

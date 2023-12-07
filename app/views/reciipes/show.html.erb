@@ -32,3 +32,5 @@
 
 <button><%= link_to "New ingredient", new_reciipe_ingredient_path(@reciipe) %></button>
 </div>
+
+<%= render partial: 'ingredients/index', locals: { ingredients: @ingredients, ingredient: @ingredient } %>
