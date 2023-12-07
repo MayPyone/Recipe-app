@@ -2,17 +2,22 @@
 <h1>Public Recipes</h1>
 
 <ul>
-<div id="reciipes">
+<div class="public-reciipes">
   <% @public_reciipes.each do |recipe| %>
-    <div class="reciipe-all">
     <li>
+    <div class="public-reciipe-all">
+    <div class="publicrecipe-title">
       <%= link_to recipe.name, reciipe_path(recipe) %>
       <p> By: <%= recipe.user.name %> </p>
+      </div>
+      <div class="fooditem"><p> Total food items:  </p>
+           <p> Total price: $
+      </div>
       <% if current_user == recipe.user %>
+      </div>
       <% end %>
     </li>
-    </div>
+   
   <% end %>
 </ul>
-</div>
 </div>

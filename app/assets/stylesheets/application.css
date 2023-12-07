@@ -142,7 +142,26 @@ nav li :hover {
   justify-content: space-between;
 }
 
-.reciipe-all li {
+.public-reciipes li {
   list-style-type: none;
   font-size: 20px;
+}
+
+.public-reciipes {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+}
+
+.public-reciipe-all {
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: 20% 70%;
+  margin: 2%;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fooditem {
+  margin-left: 10%;
 }
