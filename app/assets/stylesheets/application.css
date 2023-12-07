@@ -101,3 +101,33 @@ h1 {
 .signup h2 {
   margin-bottom: 0;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+  background-color: #AFDBF5;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  text-decoration: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+nav li :hover {
+  border: 1px solid rgba(0, 0, 255, 0.409);
+  background-color: lightblue;
+  padding: 2px 4px;
+}
+
+.logo {
+  width: 80px;
+}
