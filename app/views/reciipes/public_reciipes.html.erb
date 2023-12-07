@@ -1,12 +1,18 @@
+<div class="recipelist-container">
 <h1>Public Recipes</h1>
 
 <ul>
+<div id="reciipes">
   <% @public_reciipes.each do |recipe| %>
+    <div class="reciipe-all">
     <li>
       <%= link_to recipe.name, reciipe_path(recipe) %>
       <p> By: <%= recipe.user.name %> </p>
       <% if current_user == recipe.user %>
       <% end %>
     </li>
+    </div>
   <% end %>
 </ul>
+</div>
+</div>

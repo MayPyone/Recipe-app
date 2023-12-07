@@ -141,3 +141,8 @@ nav li :hover {
 .buttongroup-reciper {
   justify-content: space-between;
 }
+
+.reciipe-all li {
+  list-style-type: none;
+  font-size: 20px;
+}
