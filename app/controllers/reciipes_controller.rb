@@ -3,24 +3,17 @@ class ReciipesController < ApplicationController
 
   # GET /reciipes or /reciipes.json
   def index
-    @reciipes = Reciipe.all
+    @reciipes = current_user.reciipes
   end
 
   # GET /reciipes/1 or /reciipes/1.json
   def show
     @reciipe = Reciipe.find(params[:id])
-    @ingredients = @reciipe.ingredients
-    @ingredient = @ingredients.first
   end
 
   # GET /reciipes/new
   def new
     @reciipe = current_user.reciipes.build
-  end
-
-  # GET /reciipes/1/edit
-  def edit
-    # to be modified.
   end
 
   # GET /public_recipes
@@ -38,19 +31,6 @@ class ReciipesController < ApplicationController
         format.json { render :show, status: :created, location: @reciipe }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @reciipe.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /reciipes/1 or /reciipes/1.json
-  def update
-    respond_to do |format|
-      if @reciipe.update(reciipe_params)
-        format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reciipe }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @reciipe.errors, status: :unprocessable_entity }
       end
     end

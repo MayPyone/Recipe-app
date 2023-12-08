@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
-  resources :foods
+  resources :foods, except: [:update, :edit]
   devise_for :users
-  resources :reciipes do
-    resources :ingredients
-  end
+  resources :reciipes
 
   get "up" => "rails/health#show", as: :rails_health_check
 
   get '/public_reciipes', to: 'reciipes#public_reciipes'
-
-  get '/shopping_list', to: 'foods#shopping_list', as: :shopping_list_foods
 
   root "foods#index"
 end
