@@ -16,9 +16,9 @@ RSpec.describe 'Foods', type: :request do
     end
 
     it 'render template' do
-        get root_path
-        expect(response).to render_template(:index)
-      end
+      get root_path
+      expect(response).to render_template(:index)
+    end
   end
 
 
@@ -30,18 +30,17 @@ RSpec.describe 'Foods', type: :request do
     end
   end
 
- describe 'Get #create' do
- it 'returns http success' do
-    get new_food_path
-    expect(response).to have_http_status(:success)
+  describe 'Get #create' do
+    it 'returns http success' do
+      get new_food_path
+      expect(response).to have_http_status(:success)
+    end
   end
-end
 
-describe 'DELETE #destroy' do
-it 'returns http success' do
-    delete food_path(@food.id)
-    expect(response).to redirect_to(foods_path)
+  describe 'DELETE #destroy' do
+    it 'returns http success' do
+      delete food_path(@food.id)
+      expect(response).to redirect_to(foods_path)
+    end
   end
-end
-
 end
