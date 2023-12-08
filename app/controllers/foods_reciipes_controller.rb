@@ -8,12 +8,15 @@ class FoodsReciipesController < ApplicationController
   def create
     @recipe_food = FoodReciipe.where(food_id: params[:food_reciipe][:food_id],
                                      reciipe_id: params[:food_reciipe][:reciipe_id]).first
-    if @recipe_food.save
+    if @recipe_food
       @recipe_food.quantity += params[:food_reciipe][:quantity].to_i
     else
       @recipe_food = FoodReciipe.new(recipe_food_params)
     end
-    redirect_to reciipe_path(params[:food_reciipe][:reciipe_id].to_i)
+
+    saved = @recipe_food.save
+
+    redirect_to reciipe_path(params[:food_reciipe][:reciipe_id].to_i) if saved
   end
 
   def destroy
