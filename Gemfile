@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-ruby '3.0.2'
+ruby '3.2.2'
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -49,6 +49,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ]
+  gem 'rspec-rails'
 end
 
 group :development do
