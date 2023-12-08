@@ -1,5 +1,5 @@
 class ReciipesController < ApplicationController
-  before_action :set_reciipe, only: %i[show destroy]
+  before_action :set_reciipe, only: %i[show update destroy]
 
   # GET /reciipes or /reciipes.json
   def index
@@ -32,6 +32,17 @@ class ReciipesController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @reciipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /reciipes/1 or /reciipes/1.json
+  def update
+    respond_to do |format|
+      if @reciipe.update(reciipe_params)
+        format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully updated.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
