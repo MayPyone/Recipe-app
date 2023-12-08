@@ -7,13 +7,11 @@ class FoodsReciipesController < ApplicationController
 
   def create
     @recipe_food = FoodReciipe.where(food_id: params[:food_reciipe][:food_id],
-                                    reciipe_id: params[:food_reciipe][:reciipe_id]).first
-    if @recipe_food
+                                     reciipe_id: params[:food_reciipe][:reciipe_id]).first
+    if @recipe_food.save
       @recipe_food.quantity += params[:food_reciipe][:quantity].to_i
-      @recipe_food.save
     else
       @recipe_food = FoodReciipe.new(recipe_food_params)
-      @recipe_food.save
     end
     redirect_to reciipe_path(params[:food_reciipe][:reciipe_id].to_i)
   end
@@ -50,11 +48,14 @@ class FoodsReciipesController < ApplicationController
     @food_element
   end
 
+  # rubocop:disable Metrics/MethodLength
   def list_recipe_foods
     @all_foods = []
     @all_recipes = current_user.reciipes
     @all_recipes.each do |recipe_item|
       recipe_item.foods_reciipes.each do |recipe_food_item|
+        next if recipe_food_item.food.nil?
+
         @food = this_food?(@all_foods, recipe_food_item.food.name)
         if @food
           @index_food = @all_foods.index(@food)
@@ -74,6 +75,7 @@ class FoodsReciipesController < ApplicationController
     end
     @all_foods
   end
+  # rubocop:enable Metrics/MethodLength
 
   def what_food_to_buy?(all_recipes_foods)
     @food_to_buy = []
