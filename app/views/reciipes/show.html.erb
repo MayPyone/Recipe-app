@@ -26,3 +26,14 @@
 <% end %>
 </div>
 </div>
+
+<%= link_to "Add ingredient", new_reciipe_foods_reciipe_path(@reciipe), class: "btn" %>
+
+<div class="recipeActions">
+  <a href="/general_shopping_list">
+  <button type="button">Generate Shopping List</button>
+  </a>
+</div>
+<% @reciipe .foods.each_with_index do |recipe_item, index| %>
+  <%= render partial: "reciipes/food_recipe_item", locals: { food_item: recipe_item, index: index } %>
+<% end %>

@@ -9,6 +9,7 @@ class ReciipesController < ApplicationController
   # GET /reciipes/1 or /reciipes/1.json
   def show
     @reciipe = Reciipe.find(params[:id])
+    @food_reciipe = FoodReciipe.new(reciipe: @reciipe)
   end
 
   # GET /reciipes/new

@@ -1,0 +1,18 @@
+<section class="shoppingItemContainer">
+
+<div class="shopSubHeading">
+<h3>Amount of food item to buy: <%=@shopping_list.size%></h3>
+<h3>Total value of Food needed: $<%=@total%></h3>
+
+</div>
+<div class="foodTable">
+<%= render partial:"foods_reciipes/foods_header"%>
+<% if (@shopping_list.size>0) %>
+<%@shopping_list.each do |recipe_item, index|%>
+<%= render partial:"foods_reciipes/food_recipe_item", locals: {food_item:recipe_item} %>
+<% end %>
+<% else %>
+ <%= render partial:"foods/no_food"%>
+<% end %>
+</div>
+</section>
