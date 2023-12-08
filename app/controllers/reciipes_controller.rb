@@ -28,10 +28,8 @@ class ReciipesController < ApplicationController
     respond_to do |format|
       if @reciipe.save
         format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully created.' }
-        format.json { render :show, status: :created, location: @reciipe }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @reciipe.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +51,6 @@ class ReciipesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to reciipes_url, notice: 'Reciipe was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
