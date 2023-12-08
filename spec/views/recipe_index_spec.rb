@@ -8,7 +8,7 @@ RSpec.describe 'Recipes', type: :feature do
     sign_in @user
   end
 
-  describe 'returns user index page' do
+  describe 'returns recipe index page' do
     it 'returns the content of food' do
       visit reciipes_path
       expect(page).to have_content(@recipe.name)

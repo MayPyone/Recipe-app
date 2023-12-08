@@ -8,14 +8,14 @@ RSpec.describe 'Recipes', type: :feature do
     sign_in @user
   end
 
-  describe 'returns user index page' do
+  describe 'returns recipe show page' do
     it 'returns the content of food' do
       visit reciipe_path(@recipe.id)
       expect(page).to have_content(@recipe.name)
       expect(page).to have_content(@recipe.description)
     end
 
-    it 'returns the content of food page' do
+    it 'returns the content of recipe page' do
       visit reciipe_path(@recipe.id)
       expect(page).to have_content('Preparation Time:')
       expect(page).to have_content('Cooking Time')
@@ -25,7 +25,7 @@ RSpec.describe 'Recipes', type: :feature do
   end
 
 
-  describe 'Actions for food page' do
+  describe 'Actions for recipe page' do
     it 'returns action for delete' do
       visit reciipe_path(@recipe.id)
       click_button('Destroy this recipe')
