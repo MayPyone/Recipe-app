@@ -1,5 +1,5 @@
 class ReciipesController < ApplicationController
-  before_action :set_reciipe, only: %i[show edit update destroy]
+  before_action :set_reciipe, only: %i[show destroy]
 
   # GET /reciipes or /reciipes.json
   def index
