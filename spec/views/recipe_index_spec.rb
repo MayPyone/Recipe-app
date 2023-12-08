@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Recipes', type: :feature do
   include Devise::Test::IntegrationHelpers
   before do
-    @user = User.create!(name: 'may', email: 'maypyone@gmail.com', password: '123456', id: '1')
+    @user = User.create!(name: 'may', email: 'khaing@gmail.com', password: '123456', id: '1')
     @recipe = Reciipe.create!(user_id: @user.id, name: 'chicken curry', description: 'First recipe')
     sign_in @user
   end

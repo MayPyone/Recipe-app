@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before do
-    @user1 = User.create!(name: 'may', email: 'maypyone@gmail.com', password: '123456')
-    @user2 = User.create!(name: 'suu', email: 'suu@gmail.com', password: '123456')
+    @user1 = User.create!(name: 'may', email: 'sein@gmail.com', password: '123456')
+    @user2 = User.create!(name: 'suu', email: 'aye@gmail.com', password: '123456')
   end
   describe 'User model' do
     it 'should dispaly user name' do
@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'should dispaly user email' do
-      expect(@user1.email).to eq('maypyone@gmail.com')
-      expect(@user2.email).to eq('suu@gmail.com')
+      expect(@user1.email).to eq('sein@gmail.com')
+      expect(@user2.email).to eq('aye@gmail.com')
     end
 
     it 'is not valid without email' do

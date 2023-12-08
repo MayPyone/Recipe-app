@@ -6,7 +6,7 @@ RSpec.describe ReciipesController, type: :controller do
   include Devise::Test::ControllerHelpers
 
   before do
-    @user = User.create!(name: 'may', email: 'maypyone@gmail.com', password: '123456', id: '1')
+    @user = User.create!(name: 'may', email: 'ma@gmail.com', password: '123456', id: '1')
     @recipe = Reciipe.create!(user_id: @user.id, name: 'chicken curry')
     sign_in @user
   end
