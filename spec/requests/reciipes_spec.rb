@@ -37,7 +37,8 @@ RSpec.describe ReciipesController, type: :controller do
   describe 'POST #create' do
     it 'renders the new template' do
       post :create,
-           params: { reciipe: { name: 'chicken', preparation_time: 10, cooking_time: 20, description: 'Example Description',
+           params: { reciipe: { name: 'chicken', preparation_time: 10,
+                                cooking_time: 20, description: 'Description',
                                 public: true } }
       expect(response).to render_template(:new)
       expect(response).to have_http_status(:unprocessable_entity)
