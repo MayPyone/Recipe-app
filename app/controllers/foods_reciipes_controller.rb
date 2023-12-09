@@ -62,7 +62,7 @@ class FoodsReciipesController < ApplicationController
         @food = this_food?(@all_foods, recipe_food_item.food.name)
         if @food
           @index_food = @all_foods.index(@food)
-          @all_foods[@index_food][:quantity] += recipe_food_item.quantity
+          @all_foods[@index_food][:quantity] = (@all_foods[@index_food][:quantity] || 0) + (recipe_food_item.quantity || 0).to_i
           @all_foods[@index_food][:price] = recipe_food_item.food.price * @all_foods[@index_food][:quantity]
         else
           @food = {} if @food.nil?

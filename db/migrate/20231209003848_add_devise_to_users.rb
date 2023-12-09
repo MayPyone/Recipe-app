@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeviseCreateUsers < ActiveRecord::Migration[7.1]
+class AddDeviseToUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
@@ -41,17 +41,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-  end
-
-  def down
-    reversible do |dir|
-      dir.down do
-        if index_exists?(:users, :confirmation_token, unique: true)
-          remove_index :users, :confirmation_token
-        else
-          puts 'Index does not exist'
-        end
-      end
-    end
   end
 end
