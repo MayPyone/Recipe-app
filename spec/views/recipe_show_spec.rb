@@ -24,7 +24,6 @@ RSpec.describe 'Recipes', type: :feature do
     end
   end
 
-
   describe 'Actions for recipe page' do
     it 'returns action for delete' do
       visit reciipe_path(@recipe.id)
