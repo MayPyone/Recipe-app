@@ -18,6 +18,11 @@
         <li><%= link_to 'Recipes', reciipes_path %></li>
         <li><%= link_to 'Public Recipes', public_reciipes_path %>
         <li><%= link_to 'Shopping List', general_shopping_list_path %>
+       <li>
+       <button> 
+       <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { turbo_action: 'replace' }, class: 'btn btn-outline-danger ml-2' %>
+
+       </button></li>
       </ul>
     </nav>
 

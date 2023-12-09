@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :foods, except: [:update, :edit]
   devise_for :users
+  devise_scope :user do  
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+ end
   resources :reciipes, except: [:edit] do
     resources :foods_reciipes, only: [:new, :create, :destroy]
   end

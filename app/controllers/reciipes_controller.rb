@@ -25,7 +25,7 @@ class ReciipesController < ApplicationController
   # POST /reciipes or /reciipes.json
   def create
     @reciipe = Reciipe.new(reciipe_params)
-
+    @reciipe.user = current_user
     respond_to do |format|
       if @reciipe.save
         format.html { redirect_to reciipe_url(@reciipe), notice: 'Reciipe was successfully created.' }
