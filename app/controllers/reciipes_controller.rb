@@ -3,7 +3,7 @@ class ReciipesController < ApplicationController
 
   # GET /reciipes or /reciipes.json
   def index
-    @reciipes = current_user.reciipes
+    @reciipes = Reciipe.includes([:user]).where(user: current_user)
   end
 
   # GET /reciipes/1 or /reciipes/1.json
