@@ -21,8 +21,6 @@ RSpec.describe 'Foods', type: :request do
     end
   end
 
-
-
   describe 'GET /show' do
     it 'returns http success' do
       get foods_path(@food)
