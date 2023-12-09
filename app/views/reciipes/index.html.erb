@@ -1,0 +1,21 @@
+<div class="recipelist-container">
+<h1>Recipes</h1>
+  <button class="addrecipe-btn">
+  <%= link_to "New recipe", new_reciipe_path %>
+  </button>
+  </div>
+
+<div id="reciipes">
+  <% @reciipes.each do |reciipe| %>
+    <div class="reciipe-all">
+    <div class="recipe-title">
+   <p> <%= reciipe.name %> </p>
+    <%= button_to "Remove", reciipe_path(reciipe.id), method: :delete %>
+    </div>
+    <p>  <%= reciipe.description %> </p>
+    <p>
+      <%= link_to "Show this reciipe", reciipe %>
+    </p>
+    </div>
+  <% end %>
+</div>

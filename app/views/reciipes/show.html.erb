@@ -1,0 +1,62 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @reciipe.name %></h1>
+<div class="recipelist-container detail">
+<div>
+<p><strong>Preparation Time:</strong> <%= @reciipe.preparation_time %> minutes</p>
+<p><strong>Cooking Time:</strong> <%= @reciipe.cooking_time %> minutes</p>
+<p><strong>Description:</strong> <%= @reciipe.description %></p>
+
+<div>
+  <%= link_to "Back to recipes", reciipes_path %>
+
+  <% if user_signed_in? && (current_user == @reciipe.user || @reciipe.public?) %>
+    <%= button_to "Destroy this recipe", @reciipe, method: :delete %>
+  <% end %>
+</div>
+</div>
+<div class="public">
+<%= form_with(model: @reciipe) do |form| %>
+  <% if user_signed_in? && current_user == @reciipe.user %>
+    <div>
+      <%= form.label :public, style: "display: block" %>
+      <%= form.check_box :public, onchange: "this.form.submit()" %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
+
+<div class="buttongroup-recipe ">
+  <a href="/general_shopping_list">
+  <button type="button">Generate Shopping List</button>
+  </a>
+  <button><%= link_to "Add ingredient", new_reciipe_foods_reciipe_path(@reciipe), class: "btn" %></button>
+</div>
+
+
+<table class="foodlist-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity </th>
+        <th>Value price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+ 
+
+  <tbody>
+
+<% @reciipe .foods.each_with_index do |recipe_item, index| %>
+    <tr>
+      <td><%= recipe_item.name %></td>
+      <td><%= recipe_item.quantity %></td>
+      <td><div>$<%= recipe_item.price * recipe_item.quantity %></div></td>
+      <td> <div>
+        <%= link_to "Remove", reciipe_foods_reciipe_path(@reciipe, recipe_item), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    </div></td>
+      </tr>
+  <% end %>
+</tbody>
+</table>

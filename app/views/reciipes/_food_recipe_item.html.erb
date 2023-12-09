@@ -1,0 +1,8 @@
+<div class="foodTableBody">
+  <div><%= food_item.name %></div>
+  <div><%= food_item.quantity %> <%= food_item.measurement_unit %></div>
+  <div>$<%= food_item.price * food_item.quantity %></div>
+  <div>
+    <%= link_to "Remove", reciipe_foods_reciipe_path(@reciipe, food_item), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+</div>

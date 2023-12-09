@@ -1,0 +1,27 @@
+<div class="recipelist-container">
+  <h1>Shopping List</h1>
+
+  <div class="shopping-title">
+    <p>Amount of food items to buy: <%=@shopping_list.size%></p>
+    <p>Total value of food needed: $<%=@total%></p>
+  </div>
+
+  <table class="foodlist-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_list.each do |item, index| %>
+        <tr>
+          <td><%= item[:food] %></td>
+          <td><div><%= item[:quantity]%> <%= item[:unit]%></div></td>
+          <td><%= item[:price] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
