@@ -27,13 +27,36 @@
 </div>
 </div>
 
-<%= link_to "Add ingredient", new_reciipe_foods_reciipe_path(@reciipe), class: "btn" %>
-
-<div class="recipeActions">
+<div class="buttongroup-recipe ">
   <a href="/general_shopping_list">
   <button type="button">Generate Shopping List</button>
   </a>
+  <button><%= link_to "Add ingredient", new_reciipe_foods_reciipe_path(@reciipe), class: "btn" %></button>
 </div>
+
+
+<table class="foodlist-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity </th>
+        <th>Value price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+ 
+
+  <tbody>
+
 <% @reciipe .foods.each_with_index do |recipe_item, index| %>
-  <%= render partial: "reciipes/food_recipe_item", locals: { food_item: recipe_item, index: index } %>
-<% end %>
+    <tr>
+      <td><%= recipe_item.name %></td>
+      <td><%= recipe_item.quantity %></td>
+      <td><div>$<%= recipe_item.price * recipe_item.quantity %></div></td>
+      <td> <div>
+      <%= link_to "Remove", reciipe_foods_reciipe_path(@reciipe, recipe_item), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    </div></td>
+      </tr>
+  <% end %>
+</tbody>
+</table>
