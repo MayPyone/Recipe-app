@@ -124,11 +124,10 @@ To run tests, run the following command:
 - GitHub: [@Omwomo](https://github.com/Omwomo/)
 - LinkedIn: [Eugene Oduor Omwomo](https://www.linkedin.com/in/omwomo/)
 
-## 👥 Authors <a name="authors"></a>
 
 👤 **May Pyone**
 
-- GitHub: [@May Pyone](https://github.com/MayPyone/)
+- GitHub: [@MaPyone](https://github.com/MayPyone/)
 - LinkedIn: [May Pyone](https://www.linkedin.com/in/may-pyone-9439961a3/)
 
 <!-- FUTURE FEATURES -->
